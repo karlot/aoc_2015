@@ -1,5 +1,6 @@
-from collections import deque
 from random import shuffle
+from queue import PriorityQueue
+import math
 
 with open("input.txt") as file:
     lines = file.read().strip().splitlines()
@@ -36,7 +37,7 @@ def steps_to_build(m):
                 count += mol.count(to)      # increase count with all replacement we will do
                 mol = mol.replace(to, frm)  # replace all what we can
         
-        # Restart (in our sample not needed?)
+        # Restart (in my sample not needed?)
         if start == mol:
             shuffle(replacements)
             mol = m
@@ -45,6 +46,7 @@ def steps_to_build(m):
 
     # print(f"{count} steps after randomizing {shuffles} times")
     return count
+
 
 print(f"Part1: {calibrate(molecule)}")
 print(f"Part2: {steps_to_build(molecule)}")
