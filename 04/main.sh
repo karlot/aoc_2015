@@ -1,5 +1,5 @@
 #!/bin/bash
-key="yzbqklnj"
+key=$(cat input.txt)
 
 find_number() {
     number=0
